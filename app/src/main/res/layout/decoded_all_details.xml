@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/one_room_background"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/ask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:ellipsize="end"
+        android:text="00 B2 01 0C 00"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/answear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:ellipsize="end"
+        android:text="70 73 9F 6C 02 00 01 9F 62 06 00 00 00 38 00 00 9F 63 06 00 00 00 00 E0 E0 56 33 42 35 31 36 39 33 31 30 30 30 31 38 30 34 30 31 31 5E 20 2F 5E 31 39 30 39 32 32 36 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 9F 64 01 03 9F 65 02 00 0E 9F 66 02 0E 70 9F 6B 12 51 69 31 00 01 80 40 11 D1 90 92 26 00 00 00 00 00 00 9F 67 01 03 90 00"
+        />
+
+    <TextView
+        android:id="@+id/decoded"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:ellipsize="end"
+        android:textSize="10dp"
+        android:text="" />
+</LinearLayout>
