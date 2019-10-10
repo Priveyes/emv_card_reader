@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:id="@+id/tlo">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
@@ -28,7 +28,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="sans-serif"
-                android:text="Lista szpitali"
+                android:text="ListOfHospitals"
                 android:textColor="#fff"
                 android:textSize="24sp"
                 android:textStyle="normal|bold" />
@@ -43,11 +43,11 @@
                 android:textSize="18sp" />
 
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30px"
+                android:layout_marginEnd="30dp"
                 android:layout_marginTop="20dp"
                 android:columnWidth="100dp"
                 android:gravity="center"
@@ -55,16 +55,16 @@
                 android:numColumns="auto_fit"
                 android:scrollbars="none"
                 android:verticalSpacing="10dp">
-            </android.support.v7.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
 
             <Button
                 android:id="@+id/dodaj_nowy_szpital"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/one_room_background"
-                android:layout_margin="30px"
-                android:text="Dodaj nowy szpital"/>
+                android:layout_margin="30dp"
+                android:text="Add a new hospital"/>
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

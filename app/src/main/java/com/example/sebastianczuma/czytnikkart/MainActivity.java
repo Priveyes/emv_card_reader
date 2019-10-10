@@ -11,9 +11,10 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.IsoDep;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -29,7 +30,6 @@ import java.util.List;
 import io.github.binaryfoo.DecodedData;
 import io.github.binaryfoo.RootDecoder;
 import io.github.binaryfoo.cmdline.DecodedWriter;
-
 
 public class MainActivity extends Activity {
     NfcAdapter nfcAdapter;
@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         pd = new ProgressDialog(this);
-        pd.setMessage("Trwa odczyt z karty...");
+        pd.setMessage("Reading from card ...");
 
         GridLayoutManager lLayout = new GridLayoutManager(this, 1);
         rView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
     void addone(String a, String b, String c) {
         EmvDetails one1 = new EmvDetails();
         one1.setAsk(a);
-        one1.setAnswear(b);
+        one1.setAnswer(b);
         one1.setDecoded(c);
         allInfo.add(one1);
         recreateRecycler();
@@ -110,10 +110,8 @@ public class MainActivity extends Activity {
     protected void onNewIntent(Intent intent) {
         //super.onNewIntent(intent);
 
-
-
         // Is the intent for a new NFC tag discovery?
-        if (intent != null && intent.getAction() == NfcAdapter.ACTION_TECH_DISCOVERED) {
+        if (intent != null && intent.getAction().equals(NfcAdapter.ACTION_TECH_DISCOVERED)) {
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             isoDep = IsoDep.get(tag);
 
@@ -220,7 +218,7 @@ public class MainActivity extends Activity {
         //easyLog("6 lijnia 6 " + decoded.get(0).component6().get(1).component6().get(0).component6().get(0).component6().get(0).getDecodedData());
 
 /*
-        easyLog("rozmiar " + decoded.size());
+        easyLog("Size " + decoded.size());
         easyLog("1 lijnia " + decoded.get(0).component1());
         easyLog("2 lijnia " + decoded.get(0).component2());
         easyLog("3 lijnia " + decoded.get(0).component3());
@@ -264,11 +262,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             // Send the user to the settings page and hope they turn it on
-                            if (android.os.Build.VERSION.SDK_INT >= 16) {
-                                startActivity(new Intent(android.provider.Settings.ACTION_NFC_SETTINGS));
-                            } else {
-                                startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));
-                            }
+                            startActivity(new Intent(android.provider.Settings.ACTION_NFC_SETTINGS));
                         }
                     })
                     .setNegativeButton("Do Nothing", new DialogInterface.OnClickListener() {
@@ -296,7 +290,7 @@ public class MainActivity extends Activity {
         rView.setNestedScrollingEnabled(false);
     }
 
-    private class SpaceItemDecoration extends RecyclerView.ItemDecoration {
+    private static class SpaceItemDecoration extends RecyclerView.ItemDecoration {
         private final int space;
 
         SpaceItemDecoration(int space) {
@@ -304,8 +298,8 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-                                   RecyclerView.State state) {
+        public void getItemOffsets(Rect outRect, @NonNull View view, @NonNull RecyclerView parent,
+                                   @NonNull RecyclerView.State state) {
             outRect.bottom = space;
             outRect.left = space;
         }

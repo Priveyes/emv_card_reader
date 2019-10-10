@@ -32,22 +32,22 @@ public class SharedUtils {
     static protected String parseLogState(byte logstate) {
         switch (logstate & 0x60 >> 5) {
             case 0:
-                return new String("Laden");
+                return "Shop";
             case 1:
-                return new String("Entladen");
+                return "Offload";
             case 2:
-                return new String("Abbuchen");
+                return "Debit";
             case 3:
-                return new String("Rückbuchen");
+                return "RearBook";
         }
-        return new String("");
+        return "";
     }
 
-    static protected String Byte2Hex(byte[] input) {
+    static String Byte2Hex(byte[] input) {
         return Byte2Hex(input, " ");
     }
 
-    static protected String Byte2Hex(byte[] input, String space) {
+    private static String Byte2Hex(byte[] input, String space) {
         StringBuilder result = new StringBuilder();
 
         for (Byte inputbyte : input) {

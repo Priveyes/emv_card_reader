@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Czytnikkart.iml" filepath="$PROJECT_DIR$/Czytnikkart.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emv_card_reader.iml" filepath="$PROJECT_DIR$/emv_card_reader.iml" group="emv_card_reader" />
+      <module fileurl="file://$PROJECT_DIR$/app/emv_card_reader-app.iml" filepath="$PROJECT_DIR$/app/emv_card_reader-app.iml" group="emv_card_reader/app" />
     </modules>
   </component>
 </project>

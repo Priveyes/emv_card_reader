@@ -6,7 +6,7 @@ package com.example.sebastianczuma.czytnikkart;
 
 public class EmvDetails {
     private String ask;
-    private String answear;
+    private String answer;
     private String decoded;
 
     public String getAsk() {
@@ -17,12 +17,12 @@ public class EmvDetails {
         this.ask = ask;
     }
 
-    public String getAnswear() {
-        return answear;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setAnswear(String answear) {
-        this.answear = answear;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public String getDecoded() {

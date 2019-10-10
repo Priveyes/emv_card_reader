@@ -16,7 +16,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/answear"
+        android:id="@+id/answer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
